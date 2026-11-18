@@ -1,37 +1,358 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b1728"><meta name="description" content="Informações de emergência e contato de Cristiamberg Coimbra Carneiro.">
-<title>Se eu precisar de ajuda — Cristiamberg</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#18120e">
+<meta name="description" content="Cartão de emergência e contatos de Cristiamberg Coimbra Carneiro.">
+<title>Emergência — Cristiamberg</title>
 <style>
-:root{color-scheme:dark;--bg:#091321;--panel:#111f32;--line:#263951;--text:#f3f7fc;--muted:#adbbcc;--cyan:#65e0d0;--red:#ff737d;--blue:#8ebaff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#1a3552 0,transparent 48%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{max-width:680px;margin:0 auto;padding:22px 16px 42px}.top{display:flex;align-items:center;gap:10px;color:var(--cyan);font-size:.85rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase}.pulse{width:10px;height:10px;background:var(--cyan);border-radius:50%;box-shadow:0 0 16px #65e0d080}header{padding:30px 2px 22px}h1{font-size:clamp(1.8rem,7vw,2.7rem);line-height:1.08;letter-spacing:-.04em;margin:15px 0 12px}header p,.sub{color:var(--muted);margin:0}.alert{display:flex;gap:14px;align-items:center;background:#351b29;border:1px solid #803540;border-radius:18px;padding:17px;margin:0 0 16px}.alert .icon{font-size:1.65rem}.alert strong{display:block;color:#ffdfe1;font-size:1.1rem}.alert span{color:#f7b7bd;font-size:.94rem}.card{background:linear-gradient(145deg,#15263b,#101d2e);border:1px solid var(--line);border-radius:18px;padding:19px;margin:14px 0}.card h2{font-size:1.1rem;margin:0 0 14px;letter-spacing:-.01em}.step{display:grid;grid-template-columns:30px 1fr;gap:12px;margin:14px 0}.num{width:28px;height:28px;border-radius:9px;background:#243952;color:var(--cyan);font-weight:800;display:grid;place-items:center}.step p{margin:0}.step small{display:block;color:var(--muted);margin-top:3px}.contacts{display:grid;gap:10px}.contact{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px;background:#0d1929;border:1px solid #243750;border-radius:13px}.contact b{display:block}.contact small{color:var(--muted)}a{color:inherit;text-decoration:none}.call{background:#173e3c;color:#a8fff0;border:1px solid #28655e;border-radius:10px;padding:9px 12px;font-weight:750;white-space:nowrap}.personal{display:grid;gap:12px}.kv{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #263951;padding:0 0 10px}.kv:last-child{border:0;padding:0}.label{color:var(--muted)}.value{text-align:right;font-weight:650;overflow-wrap:anywhere}.reveal{background:none;border:0;color:var(--blue);font:inherit;text-decoration:underline;cursor:pointer;padding:0}.phonegrid{display:flex;flex-wrap:wrap;gap:9px}.pill{border:1px solid #344961;background:#0c1828;padding:9px 12px;border-radius:999px}.pill b{color:#fff}.social{color:var(--blue)}.fine{font-size:.82rem;color:var(--muted)}footer{padding:8px 3px;color:#91a2b7;font-size:.82rem}footer a{text-decoration:underline;color:#b8c9dc}.btn192{display:block;text-align:center;background:#aa3241;color:#fff;padding:14px;border-radius:13px;font-weight:850;font-size:1.06rem;margin-top:14px}.btn192 span{opacity:.8;font-weight:550;font-size:.84rem}
+  :root {
+    color-scheme: dark;
+    --bg: #15100c;
+    --surface: #221a14;
+    --surface-hover: #2b211a;
+    --border: #3d2f24;
+    --text: #fbf8f5;
+    --muted: #c2b3a6;
+    --amber: #f7b726;
+    --amber-soft: rgba(247, 183, 38, 0.14);
+    --amber-border: rgba(247, 183, 38, 0.35);
+    --danger-bg: #3b171b;
+    --danger-border: #8c2d37;
+    --danger-btn: #c43240;
+    --danger-btn-hover: #a82834;
+    --green-bg: #183629;
+    --green-border: #2c664d;
+    --green-text: #8ef5c5;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: radial-gradient(circle at 50% -5%, #382518 0%, var(--bg) 55%);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 24px 18px 48px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--amber-soft);
+    border: 1px solid var(--amber-border);
+    color: var(--amber);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    background: var(--amber);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--amber);
+    animation: blink 2s infinite ease-in-out;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.85); }
+  }
+
+  header {
+    padding: 22px 2px 24px;
+  }
+
+  h1 {
+    font-size: clamp(1.85rem, 6.5vw, 2.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  header p {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  header strong {
+    color: var(--text);
+    font-weight: 650;
+  }
+
+  .alert {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    background: var(--danger-bg);
+    border: 1px solid var(--danger-border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .alert-icon {
+    font-size: 1.7rem;
+    line-height: 1;
+  }
+
+  .alert strong {
+    display: block;
+    color: #ffe3e6;
+    font-size: 1.08rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 2px;
+  }
+
+  .alert span {
+    display: block;
+    color: #f5b8be;
+    font-size: 0.9rem;
+  }
+
+  .btn-samu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: var(--danger-btn);
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 20px rgba(196, 50, 64, 0.35);
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+
+  .btn-samu:active {
+    background: var(--danger-btn-hover);
+    transform: scale(0.99);
+  }
+
+  .btn-samu span {
+    font-size: 0.82rem;
+    font-weight: 500;
+    opacity: 0.88;
+    margin-top: 2px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 16px;
+  }
+
+  .card h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .contacts {
+    display: grid;
+    gap: 12px;
+  }
+
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .contact b {
+    display: block;
+    font-size: 0.98rem;
+    color: var(--text);
+  }
+
+  .contact small {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .btn-call {
+    text-decoration: none;
+    background: var(--green-bg);
+    color: var(--green-text);
+    border: 1px solid var(--green-border);
+    border-radius: 11px;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  .btn-call:active {
+    opacity: 0.8;
+  }
+
+  .steps {
+    display: grid;
+    gap: 16px;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .num {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background: var(--amber-soft);
+    border: 1px solid var(--amber-border);
+    color: var(--amber);
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .step b {
+    display: block;
+    font-size: 0.96rem;
+    margin-bottom: 2px;
+  }
+
+  .step small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.42;
+  }
+
+  footer {
+    margin-top: 24px;
+    padding: 0 4px;
+    color: var(--muted);
+    font-size: 0.84rem;
+    text-align: center;
+  }
+
+  footer p + p {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    opacity: 0.75;
+  }
 </style>
 </head>
-<body><main class="wrap">
-<div class="top"><span class="pulse"></span> Cartão de emergência</div>
-<header><h1>Se eu precisar de ajuda</h1><p>Meu nome é <strong>Cristiamberg Coimbra Carneiro</strong>. Estas informações podem ajudar em uma emergência.</p></header>
-<section class="alert" aria-label="Alergia importante"><div class="icon">⚠️</div><div><strong>ALERGIA A DIPIRONA</strong><span>Avise a equipe de saúde antes de qualquer medicação.</span></div></section>
-<a class="btn192" href="tel:192">Ligar para o SAMU — 192<br><span>Emergência médica • gratuito • 24 horas</span></a>
-<section class="card"><h2>Se eu sofrer um acidente</h2>
-<div class="step"><div class="num">1</div><p><b>Chame o SAMU: 192</b><small>Informe o local exato, o que aconteceu, quantas pessoas estão feridas e se alguém está preso.</small></p></div>
-<div class="step"><div class="num">2</div><p><b>Compartilhe estas informações</b><small>Nome, alergia a dipirona e contato da minha esposa estão abaixo. Siga as orientações do atendente.</small></p></div>
-<div class="step"><div class="num">3</div><p><b>Não me mova nem me dê água</b><small>Deixe a equipe orientar. Se for acidente de moto, não retire o capacete.</small></p></div>
-<div class="step"><div class="num">4</div><p><b>Ligue para minha esposa</b><small>Se possível, informe onde estou e qual serviço de emergência foi acionado.</small></p></div>
-</section>
-<section class="card"><h2>Contatos de emergência</h2><div class="contacts">
-<div class="contact"><div><b>Samile Yana Fontenele Lopes</b><small>Esposa</small></div><a class="call" href="tel:+5585994190869" aria-label="Ligar para Samile">☎ Ligar</a></div>
-<div class="contact"><div><b>Cristiana de Paula Coimbra</b><small>Contato de emergência</small></div><a class="call" href="tel:+5585986422991" aria-label="Ligar para Cristiana">☎ Ligar</a></div>
-</div></section>
-<section class="card"><h2>Meus dados</h2><div class="personal">
-<div class="kv"><span class="label">Nome</span><span class="value">Cristiamberg Coimbra Carneiro</span></div>
-<div class="kv"><span class="label">CPF</span><span class="value"><button id="toggleCpf" class="reveal" type="button" aria-expanded="false">Toque para revelar</button><span id="cpf" hidden>619.559.113-04</span></span></div>
-<div><div class="label" style="margin-bottom:7px">Meus telefones</div><div class="phonegrid"><a class="pill" href="tel:+5585989045833">☎ <b>(85) 98904-5833</b></a><a class="pill" href="tel:+5585991971398">☎ <b>(85) 99197-1398</b></a></div></div>
-<div><div class="label" style="margin-bottom:7px">Redes sociais</div><a class="pill social" href="https://instagram.com/cristiam_berg" target="_blank" rel="noopener">@cristiam_berg</a> <a class="pill social" href="https://instagram.com/cristiam.berg" target="_blank" rel="noopener">@cristiam.berg</a></div>
-</div></section>
-<footer><p>Se esta carteira foi encontrada, por favor avise-me ou entre em contato com minha esposa. Obrigado.</p><p class="fine">A página depende de internet no celular. Em emergência, ligue 192 diretamente.</p><p>Orientações: <a href="https://www.gov.br/saude/pt-br/composicao/saes/samu-192">Ministério da Saúde — SAMU 192</a>.</p></footer>
-</main><script>
-const b=document.getElementById('toggleCpf'),c=document.getElementById('cpf');b.addEventListener('click',()=>{const show=c.hidden;c.hidden=!show;b.textContent=show?'Ocultar CPF':'Toque para revelar';b.setAttribute('aria-expanded',String(show));});
-</script></body></html>
+<body>
+  <main class="wrap">
+    <div class="badge"><span class="pulse"></span> Cartão de Emergência</div>
 
+    <header>
+      <h1>Se eu precisar de ajuda</h1>
+      <p>Meu nome é <strong>Cristiamberg Coimbra Carneiro</strong>. Use estas informações caso eu sofra algum acidente ou mal-estar.</p>
+    </header>
+
+    <section class="alert" aria-label="Alerta médico">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <strong>ALERGIA A DIPIRONA</strong>
+        <span>Avise a equipe médica antes de administrar qualquer medicação.</span>
+      </div>
+    </section>
+
+    <a class="btn-samu" href="tel:192">
+      Ligar para o SAMU — 192
+      <span>Atendimento de emergência • Gratuito • 24h</span>
+    </a>
+
+    <section class="card">
+      <h2>Contatos de emergência</h2>
+      <div class="contacts">
+        <div class="contact">
+          <div>
+            <b>Samile Yana Fontenele Lopes</b>
+            <small>Esposa</small>
+          </div>
+          <a class="btn-call" href="tel:+5585994190869" aria-label="Ligar para Samile">☎ Ligar</a>
+        </div>
+
+        <div class="contact">
+          <div>
+            <b>Cristiana de Paula Coimbra</b>
+            <small>Contato de emergência</small>
+          </div>
+          <a class="btn-call" href="tel:+5585986422991" aria-label="Ligar para Cristiana">☎ Ligar</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Como ajudar em caso de acidente</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <b>Acione o SAMU (192)</b>
+            <small>Informe o endereço exato, o que aconteceu e se há outras pessoas feridas.</small>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <b>Não me mova e não retire o capacete</b>
+            <small>Se for acidente de moto, aguarde o resgate. Não me dê água nem medicamentos.</small>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <b>Avise minha esposa</b>
+            <small>Ligue para a Samile informando onde estou e para qual hospital serei levado.</small>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <b>Repasse a alergia aos socorristas</b>
+            <small>Reforce com a equipe de atendimento que tenho alergia a dipirona.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Se encontrou meus pertences ou carteira, por favor entre em contato com minha esposa. Muito obrigado.</p>
+      <p>Em emergência sem internet no aparelho, disque 192 diretamente.</p>
+    </footer>
+  </main>
+</body>
+</html>
